@@ -1,23 +1,21 @@
-"use client"
+"use client";
 
-import * as React from "react"
 import {
-  BookOpen,
-  Bot,
-  Command,
-  Frame,
+  ChartNoAxesCombined,
+  Compass,
+  Guitar,
+  Headphones,
+  HeartPulse,
+  House,
   LifeBuoy,
-  Map,
-  PieChart,
+  Search,
   Send,
-  Settings2,
-  SquareTerminal,
-} from "lucide-react"
+} from "lucide-react";
+import * as React from "react";
 
-import { NavMain } from "@/components/nav-main"
-import { NavProjects } from "@/components/nav-projects"
-import { NavSecondary } from "@/components/nav-secondary"
-import { NavUser } from "@/components/nav-user"
+import { NavMain } from "@/components/nav-main";
+import { NavSecondary } from "@/components/nav-secondary";
+import { NavUser } from "@/components/nav-user";
 import {
   Sidebar,
   SidebarContent,
@@ -26,146 +24,100 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-} from "@/components/ui/sidebar"
+} from "@/components/ui/sidebar";
 
 const data = {
-  user: {
-    name: "shadcn",
-    email: "m@example.com",
-    avatar: "/avatars/shadcn.jpg",
-  },
   navMain: [
     {
-      title: "Playground",
-      url: "#",
-      icon: SquareTerminal,
-      isActive: true,
-      items: [
+      title: "Search",
+      url: "/search",
+      icon: Search,
+    },
+    {
+      title: "Home",
+      url: "/",
+      icon: House,
+    },
+    {
+      title: "Discovery",
+      icon: Compass,
+      subMenus: [
         {
-          title: "History",
-          url: "#",
+          title: "Song",
+          url: "/song",
         },
         {
-          title: "Starred",
-          url: "#",
+          title: "Playlist",
+          url: "/playlist",
         },
         {
-          title: "Settings",
-          url: "#",
+          title: "Video",
+          url: "/video",
+        },
+        {
+          title: "Artist",
+          url: "/artist",
         },
       ],
     },
     {
-      title: "Models",
-      url: "#",
-      icon: Bot,
-      items: [
+      title: "What Listen Today",
+      icon: Headphones,
+      openDefault: true,
+      subMenus: [
         {
-          title: "Genesis",
-          url: "#",
+          title: "Topic",
+          url: "/topic",
         },
         {
-          title: "Explorer",
-          url: "#",
+          title: "Collection",
+          url: "/collection",
         },
         {
-          title: "Quantum",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Documentation",
-      url: "#",
-      icon: BookOpen,
-      items: [
-        {
-          title: "Introduction",
-          url: "#",
-        },
-        {
-          title: "Get Started",
-          url: "#",
-        },
-        {
-          title: "Tutorials",
-          url: "#",
-        },
-        {
-          title: "Changelog",
-          url: "#",
+          title: "Top 100",
+          url: "/top-100",
         },
       ],
     },
     {
-      title: "Settings",
-      url: "#",
-      icon: Settings2,
-      items: [
-        {
-          title: "General",
-          url: "#",
-        },
-        {
-          title: "Team",
-          url: "#",
-        },
-        {
-          title: "Billing",
-          url: "#",
-        },
-        {
-          title: "Limits",
-          url: "#",
-        },
-      ],
+      title: "T-music Chart",
+      url: "/statistic",
+      icon: ChartNoAxesCombined,
+    },
+    {
+      title: "Music 4U",
+      url: "/music-for-you",
+      icon: HeartPulse,
     },
   ],
   navSecondary: [
     {
       title: "Support",
-      url: "#",
+      url: "/support",
       icon: LifeBuoy,
     },
     {
       title: "Feedback",
-      url: "#",
+      url: "/feedback",
       icon: Send,
     },
   ],
-  projects: [
-    {
-      name: "Design Engineering",
-      url: "#",
-      icon: Frame,
-    },
-    {
-      name: "Sales & Marketing",
-      url: "#",
-      icon: PieChart,
-    },
-    {
-      name: "Travel",
-      url: "#",
-      icon: Map,
-    },
-  ],
-}
+};
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
-    <Sidebar variant="inset" {...props}>
+    <Sidebar variant="inset" collapsible="icon" {...props}>
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
               <a href="#">
                 <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
-                  <Command className="size-4" />
+                  <Guitar className="size-4" />
                 </div>
                 <div className="grid flex-1 text-left text-sm leading-tight">
-                  <span className="truncate font-semibold">Acme Inc</span>
-                  <span className="truncate text-xs">Enterprise</span>
+                  <span className="truncate font-semibold">T-music</span>
+                  <span className="truncate text-xs">Enjoy the music</span>
                 </div>
               </a>
             </SidebarMenuButton>
@@ -173,13 +125,12 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         </SidebarMenu>
       </SidebarHeader>
       <SidebarContent>
-        <NavMain items={data.navMain} />
-        <NavProjects projects={data.projects} />
-        <NavSecondary items={data.navSecondary} className="mt-auto" />
+        <NavMain menus={data.navMain} />
+        <NavSecondary menus={data.navSecondary} className="mt-auto" />
       </SidebarContent>
       <SidebarFooter>
-        <NavUser user={data.user} />
+        <NavUser />
       </SidebarFooter>
     </Sidebar>
-  )
+  );
 }

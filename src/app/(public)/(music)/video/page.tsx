@@ -1,5 +1,5 @@
-const Videos = () => {
-  return <div>Videos</div>;
+const Video = () => {
+  return <div>Video</div>;
 };
 
-export default Videos;
+export default Video;
