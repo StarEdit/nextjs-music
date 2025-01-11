@@ -1,6 +1,7 @@
 import AppHeader from "@/components/app-header";
-import { AppSidebar } from "@/components/app-sidebar";
-import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
+import CustomPlayer from "@/components/player/custom-player";
+import { AppSidebar } from "@/components/sidebar/app-sidebar";
+import { SidebarProvider } from "@/components/ui/sidebar";
 
 export default function Layout({
   children,
@@ -10,10 +11,11 @@ export default function Layout({
   return (
     <SidebarProvider>
       <AppSidebar />
-      <SidebarInset>
+      <div className="flex-1 flex flex-col">
         <AppHeader />
-        <div className="p-4 pt-0">{children}</div>
-      </SidebarInset>
+        <div className="flex-1 p-4 pt-0">{children}</div>
+      </div>
+      <CustomPlayer />
     </SidebarProvider>
   );
 }
