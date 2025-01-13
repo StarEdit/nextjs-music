@@ -1,3 +1,5 @@
+"use client";
+
 import songThumbDefault from "@/assets/song-thumb-default.jpg";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Button } from "@/components/ui/button";
@@ -8,17 +10,26 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import usePlayer from "@/hooks/use-player";
+import { cn } from "@/lib/utils";
 import { MicVocal } from "lucide-react";
 import Image from "next/image";
 
 const DetailSong = () => {
+  const { isKaraoke, handleKaraoke } = usePlayer();
+
   return (
     <Card>
       <CardHeader>
         <CardTitle>Card Title</CardTitle>
         <CardDescription className="flex items-center justify-between">
           <div>Card Description</div>
-          <Button size="icon" variant="ghost">
+          <Button
+            size="icon"
+            variant="ghost"
+            onClick={() => handleKaraoke(!isKaraoke)}
+            className={cn({ "text-active": isKaraoke })}
+          >
             <MicVocal />
           </Button>
         </CardDescription>

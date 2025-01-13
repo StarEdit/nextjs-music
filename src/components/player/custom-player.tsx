@@ -3,7 +3,7 @@ import PlayerControl from "@/components/player/player-control";
 
 const CustomPlayer = () => {
   return (
-    <div className="relative z-20 w-80 flex flex-col justify-between p-6 border-l">
+    <div className="w-80 flex flex-col justify-between p-6 border-l">
       <DetailSong />
       <PlayerControl />
     </div>

@@ -1,3 +1,9 @@
+import HomeBanner from "@/components/carousel/home-banner";
+
 export default function Home() {
-  return <div>Home</div>;
+  return (
+    <div>
+      <HomeBanner />
+    </div>
+  );
 }
