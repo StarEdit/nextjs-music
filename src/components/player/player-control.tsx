@@ -74,7 +74,7 @@ const PlayerControl = () => {
   };
 
   return (
-    <>
+    <div className="sticky bottom-6">
       <div className="sr-only">
         <ReactPlayer url="https://audioplayer.madza.dev/Madza-Chords_of_Life.mp3" />
       </div>
@@ -134,7 +134,7 @@ const PlayerControl = () => {
           {buttonRepeatRender()}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -19,7 +19,7 @@ const DetailSong = () => {
   const { isKaraoke, handleKaraoke } = usePlayer();
 
   return (
-    <Card>
+    <Card className="sticky top-6">
       <CardHeader>
         <CardTitle>Card Title</CardTitle>
         <CardDescription className="flex items-center justify-between">

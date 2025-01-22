@@ -7,4 +7,6 @@ declare global {
    */
 
   type ObjectValues<T extends Record<string, unknown>> = T[keyof T];
+
+  type SearchParams = { [key: string]: string | string[] | number | undefined };
 }
