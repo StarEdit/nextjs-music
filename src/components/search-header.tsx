@@ -40,10 +40,6 @@ const SearchContent = () => {
     }
   }, [pathname]);
 
-  if (!pathname.startsWith("/search")) {
-    return;
-  }
-
   return (
     <div className="relative w-full mx-10">
       <Search

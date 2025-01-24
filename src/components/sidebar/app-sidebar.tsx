@@ -1,11 +1,9 @@
 "use client";
 
 import {
-  ChartNoAxesCombined,
   Compass,
   Guitar,
   Headphones,
-  HeartPulse,
   House,
   LifeBuoy,
   Search,
@@ -45,15 +43,15 @@ const data = {
       subMenus: [
         {
           title: "Song",
-          url: "/song",
+          url: "/song/new-hot",
         },
         {
           title: "Playlist",
-          url: "/playlist",
+          url: "/playlist/new-hot",
         },
         {
           title: "Video",
-          url: "/video",
+          url: "/video/new-hot",
         },
         {
           title: "Artist",
@@ -79,16 +77,6 @@ const data = {
           url: "/top-100",
         },
       ],
-    },
-    {
-      title: "T-music Chart",
-      url: "/statistic",
-      icon: ChartNoAxesCombined,
-    },
-    {
-      title: "Music 4U",
-      url: "/music-for-you",
-      icon: HeartPulse,
     },
   ],
   navSecondary: [

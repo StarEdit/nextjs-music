@@ -15,7 +15,7 @@ interface Props {
   page: number;
   pageSize: number;
   pathname: string;
-  searchParams: SearchParams;
+  searchParams?: SearchParams;
   className?: string;
 }
 
@@ -25,7 +25,7 @@ const AutoPagination = ({
   page,
   pageSize,
   pathname,
-  searchParams,
+  searchParams = {},
   className,
 }: Props) => {
   const renderPagination = () => {
