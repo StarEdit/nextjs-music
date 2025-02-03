@@ -40,11 +40,12 @@ export function NavMain({
     <SidebarGroup>
       <SidebarMenu>
         {menus.map((menu) => {
-          const isActive =
-            !!(
-              menu.subMenus?.length &&
-              menu.subMenus.find((item) => item.url === pathname)
-            ) || menu?.url === pathname;
+          const currentUrl =
+            (menu.subMenus?.length &&
+              menu.subMenus.find((item) => pathname.includes(item.url))?.url) ||
+            menu?.url;
+
+          const isActive = !!(currentUrl && pathname.includes(currentUrl));
 
           return (
             <Collapsible
@@ -83,7 +84,7 @@ export function NavMain({
                           <SidebarMenuSubItem key={subMenu.title}>
                             <SidebarMenuSubButton
                               asChild
-                              isActive={subMenu.url === pathname}
+                              isActive={pathname.includes(subMenu.url)}
                             >
                               <Link href={subMenu.url}>
                                 <span>{subMenu.title}</span>

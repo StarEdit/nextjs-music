@@ -43,19 +43,15 @@ const data = {
       subMenus: [
         {
           title: "Song",
-          url: "/song/new-hot",
+          url: "/song",
         },
         {
           title: "Playlist",
-          url: "/playlist/new-hot",
+          url: "/playlist",
         },
         {
           title: "Video",
-          url: "/video/new-hot",
-        },
-        {
-          title: "Artist",
-          url: "/artist",
+          url: "/video",
         },
       ],
     },
@@ -67,10 +63,6 @@ const data = {
         {
           title: "Topic",
           url: "/topic",
-        },
-        {
-          title: "Collection",
-          url: "/collection",
         },
         {
           title: "Top 100",
