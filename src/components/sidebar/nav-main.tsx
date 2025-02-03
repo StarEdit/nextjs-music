@@ -36,16 +36,28 @@ export function NavMain({
 }) {
   const pathname = usePathname();
 
+  const handleActive = (url: string) => {
+    const pathnameCompare = pathname.split("/")[1];
+    const urlCompare = url.split("/")[1];
+
+    return pathnameCompare === urlCompare;
+  };
+
   return (
     <SidebarGroup>
       <SidebarMenu>
         {menus.map((menu) => {
-          const currentUrl =
-            (menu.subMenus?.length &&
-              menu.subMenus.find((item) => pathname.includes(item.url))?.url) ||
-            menu?.url;
+          let isActive = false;
 
-          const isActive = !!(currentUrl && pathname.includes(currentUrl));
+          if (menu.subMenus) {
+            isActive =
+              menu.subMenus.findIndex(
+                (submenu) =>
+                  submenu.url.split("/")[1] === pathname.split("/")[1]
+              ) > -1;
+          } else {
+            isActive = handleActive(menu.url || "");
+          }
 
           return (
             <Collapsible
@@ -84,7 +96,7 @@ export function NavMain({
                           <SidebarMenuSubItem key={subMenu.title}>
                             <SidebarMenuSubButton
                               asChild
-                              isActive={pathname.includes(subMenu.url)}
+                              isActive={handleActive(subMenu.url)}
                             >
                               <Link href={subMenu.url}>
                                 <span>{subMenu.title}</span>
