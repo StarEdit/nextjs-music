@@ -17,7 +17,6 @@ export default function Home() {
       <HotVideo />
       <SongList />
       <HotTopic />
-      <ItemSlide title="Top 100" />
     </section>
   );
 }
