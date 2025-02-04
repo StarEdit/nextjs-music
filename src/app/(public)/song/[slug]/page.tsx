@@ -1,5 +1,5 @@
 import { SongType } from "@/schema-validation/song.schema";
-import DetailSongAction from "@/sections/discovery/detail-song-action";
+import DetailAction from "@/sections/discovery/detail-action";
 import DetailSongInfo from "@/sections/discovery/detail-song-info";
 import DetailSongLyric from "@/sections/discovery/detail-song-lyric";
 
@@ -19,7 +19,7 @@ const Detail = () => {
   return (
     <div>
       <DetailSongInfo songDetail={raw} />
-      <DetailSongAction songDetail={raw} />
+      <DetailAction uploadedBy={raw.uploadedBy} />
       {raw.lyrics && <DetailSongLyric songDetail={raw} />}
     </div>
   );

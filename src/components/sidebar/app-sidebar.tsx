@@ -1,18 +1,9 @@
 "use client";
 
-import {
-  Compass,
-  Guitar,
-  Headphones,
-  House,
-  LifeBuoy,
-  Search,
-  Send,
-} from "lucide-react";
+import { Compass, Guitar, Headphones, House, Search } from "lucide-react";
 import * as React from "react";
 
 import { NavMain } from "@/components/sidebar/nav-main";
-import { NavSecondary } from "@/components/sidebar/nav-secondary";
 import { NavUser } from "@/components/sidebar/nav-user";
 import {
   Sidebar,
@@ -71,18 +62,6 @@ const data = {
       ],
     },
   ],
-  navSecondary: [
-    {
-      title: "Support",
-      url: "/support",
-      icon: LifeBuoy,
-    },
-    {
-      title: "Feedback",
-      url: "/feedback",
-      icon: Send,
-    },
-  ],
 };
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
@@ -107,7 +86,6 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarHeader>
       <SidebarContent>
         <NavMain menus={data.navMain} />
-        <NavSecondary menus={data.navSecondary} className="mt-auto" />
       </SidebarContent>
       <SidebarFooter>
         <NavUser />
